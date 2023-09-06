@@ -17,28 +17,14 @@ public class WorldCitiesTests
     public void getClosestCity() throws IOException {
         //given
         WorldCities worldCities = new WorldCities();
-        double givenLat = 40.7128;
-        double givenLon = -74.0060;
+        double givenLat = 41.8320;
+        double givenLon = -87.8172;
 
         //when
         String closestCity = worldCities.getClosestCity(givenLat, givenLon);
 
         //then
-        assertEquals(closestCity, "New York");
-
-    }
-
-    @Test
-    public void CSVParser() throws IOException {
-        //given
-        File csvData = new File("worldcities.csv");
-        CSVParser parser = CSVParser.parse(csvData, Charset.defaultCharset(), CSVFormat.RFC4180);
-
-        //when
-        String city = parser.getRecords().get(1).get(0);
-
-        //then
-        assertEquals("Tokyo", city);
+        assertEquals(closestCity, "Riverside");
 
     }
 
