@@ -39,7 +39,7 @@ public class WorldCities
             {
                 cityLat = Double.parseDouble(record.get(2));
                 cityLng = Double.parseDouble(record.get(3));
-                double distance = Math.sqrt((givenLat - cityLat) * (givenLat - cityLat) * (givenLon - cityLng) * (givenLon - cityLng));
+                double distance = Math.sqrt(((givenLat - cityLat) * (givenLat - cityLat)) + ((givenLon - cityLng) * (givenLon - cityLng)));
                 if (distance <= closestDistance)
                 {
                     closestDistance = distance;
