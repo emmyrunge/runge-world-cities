@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class WorldCitiesServlet extends HttpServlet {
+public class WorldCitiesServlet extends HttpServlet
+{
 
     private final WorldCities ledger = new WorldCities();
     private final Gson gson = new Gson();
