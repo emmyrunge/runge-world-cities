@@ -1,8 +1,6 @@
 package runge.worldcities;
 
 import com.google.gson.Gson;
-import runge.worldcities.CityResponse;
-import runge.worldcities.WorldCities;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,11 +31,11 @@ public class WorldCitiesServlet extends HttpServlet
     ) throws ServletException, IOException {
         String lat = req.getParameter("lat");
         String lng = req.getParameter("lon");
-        double dLat = Double.parseDouble(lat);
-        double dLng = Double.parseDouble(lng);
-        String closestCity = ledger.getClosestCity(dLat, dLng);
+        double latit = Double.parseDouble(lat);
+        double longi = Double.parseDouble(lng);
+        String closestCity = ledger.getClosestCity(latit, longi);
 
-        CityResponse cityResponse = new CityResponse(closestCity, ledger.finalLat, ledger.finalLng) ;
+        CityResponse cityResponse = new CityResponse(closestCity, ledger.finalLat, ledger.finalLng);
         resp.setContentType("text/json");
         resp.getWriter().println(gson.toJson(cityResponse));
     }

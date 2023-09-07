@@ -22,10 +22,10 @@ public class WorldCitiesServletTest
         HttpServletRequest request = mock();
         HttpServletResponse response = mock();
 
-        WorldCitiesServlet servlet = new WorldCitiesServlet(ledger, gson);
         doReturn("Howell").when(ledger).getClosestCity(42.6078, -83.9339);
         doReturn("42.6078").when(request).getParameter("lat");
         doReturn("-83.9339").when(request).getParameter("lon");
+        WorldCitiesServlet servlet = new WorldCitiesServlet(ledger, gson);
 
         PrintWriter out = mock();
         doReturn(out).when(response).getWriter();
