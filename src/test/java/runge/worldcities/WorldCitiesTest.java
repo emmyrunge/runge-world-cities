@@ -1,17 +1,13 @@
 package runge.worldcities;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.junit.Test;
 
+import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
 
-import static junit.framework.TestCase.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class WorldCitiesTests
+public class WorldCitiesTest
 {
     @Test
     public void getClosestCity() throws IOException {

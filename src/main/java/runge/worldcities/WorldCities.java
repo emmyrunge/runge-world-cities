@@ -17,6 +17,9 @@ public class WorldCities
     private double cityLng;
     private String closestCity;
     private final CSVParser parser;
+    double finalLat;
+    double finalLng;
+
     private String city;
 
     public WorldCities() throws IOException {
@@ -39,11 +42,15 @@ public class WorldCities
             {
                 cityLat = Double.parseDouble(record.get(2));
                 cityLng = Double.parseDouble(record.get(3));
-                double distance = Math.sqrt(((givenLat - cityLat) * (givenLat - cityLat)) + ((givenLon - cityLng) * (givenLon - cityLng)));
+                double distance =
+                        Math.sqrt(((givenLat - cityLat) * (givenLat - cityLat)) +
+                                ((givenLon - cityLng) * (givenLon - cityLng)));
                 if (distance <= closestDistance)
                 {
                     closestDistance = distance;
                     closestCity = record.get(0);
+                    finalLat = cityLat;
+                    finalLng = cityLng;
                 }
             }
         }
