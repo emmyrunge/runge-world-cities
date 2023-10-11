@@ -1,0 +1,22 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <display-name>WorldCities</display-name>
+        <servlet-name>WorldCities</servlet-name>
+        <servlet-class>runge.worldcities.WorldCitiesServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>WorldCities</servlet-name>
+        <url-pattern>/worldCities</url-pattern>
+    </servlet-mapping>
+
+</web-app>
