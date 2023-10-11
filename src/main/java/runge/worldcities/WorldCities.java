@@ -4,26 +4,27 @@ import java.io.IOException;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import java.io.File;
+import java.io.InputStream;
 import java.nio.charset.Charset;
 
 public class WorldCities {
 
     private String closestCity;
-    private final CSVParser parser;
     public double finalLat;
     public double finalLng;
 
-    public WorldCities() throws IOException {
-
-        File csvData = new File("worldcities.csv");
-        parser = CSVParser.parse(csvData, Charset.defaultCharset(), CSVFormat.RFC4180);
+    public WorldCities() {
     }
 
-    public String getClosestCity(double givenLat, double givenLon) {
+    public String getClosestCity(double givenLat, double givenLon) throws IOException {
         double closestDistance = Double.MAX_VALUE;
 
+        InputStream inputStream = WorldCities.class.getClassLoader()
+                .getResourceAsStream("worldcities.csv");
+
+        CSVParser parser = CSVParser.parse(inputStream, Charset.defaultCharset(), CSVFormat.RFC4180);
         Iterable<CSVRecord> cityParser = parser.getRecords();
+
         for (CSVRecord record : cityParser) {
             double cityLat;
             double cityLng;

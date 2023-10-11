@@ -13,7 +13,7 @@ public class JettyMain {
         server.setConnectors(new Connector[]{connector});
 
         ServletHandler handler = new ServletHandler();
-        handler.addServletWithMapping(WorldCitiesServlet.class, "/worldCities");
+        handler.addServletWithMapping(WorldCitiesServlet.class, "worldCities");
         server.setHandler(handler);
 
         server.start();
